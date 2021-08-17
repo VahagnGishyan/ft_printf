@@ -30,16 +30,26 @@ void pf_split_by_message(const char *format, va_list* args, t_c_vector_string* a
     length = ce_strlen(format);
     start = 0;
     c_vector_string_resize(arg_message, pf_get_message_count(format));
+
+		//printf("Check pf_split_by_message :: 2\n");
+		//printf("Format Must Be = %s", format);
+		//printf("Format is      = ");
     while (++index < length)
     {
-		char symbol = format[index];
+		unsigned char symbol = format[index];
 		//if (pf_is_valid_char(symbol))
 		//{
 		//    c_string_push_back(c_vector_string_at(arg_message, start), symbol);
 		//    continue ;
 		//}
+		//For test, for test
+		//printf("%c", symbol);
 		if (symbol == '%')
 		{
+
+
+			//For test, for test
+			//printf("%c", format[index + 1]);
 			++start;
 			++index; // no flag
 			pf_add_mesige_value(c_vector_string_at(arg_message, start), format[index], args);
@@ -47,11 +57,17 @@ void pf_split_by_message(const char *format, va_list* args, t_c_vector_string* a
 			continue ;
 		}
 		else
+		{
+			printf("Add symbol         = %c\n", symbol);
 			c_string_push_back(c_vector_string_at(arg_message, start), symbol);
+			printf("Copy symbol        = %c\n", c_vector_string_at(arg_message, start)->m_dynamic_array[c_vector_string_at(arg_message, start)->m_size - 1]);
+			printf("But add symbol     = %c\n\n", *c_string_back(c_vector_string_at(arg_message, start)));
+		}
+
     }
     pf_shrink_to_fit(arg_message);
 
-		printf("Check pf_split_by_message :: 2\n");
+		printf("Check pf_split_by_message :: 3\n");
 		printf("Format = %s\n", format);
 
 	printf("Start message print\n");
@@ -65,6 +81,8 @@ void pf_split_by_message(const char *format, va_list* args, t_c_vector_string* a
 		str = c_vector_string_at(arg_message, index);
 
 		ptr = (char*)malloc(c_string_size(str) * 1.3 + 1);
+		for(int index = 
+		)
 		c_string_convert_to_chararray(str, ptr);
 		printf("%s\n",ptr);
 		
