@@ -1,12 +1,19 @@
 
 #include "../ft_printf/ft_printf/ft_printf.h"
 
-bool pf_check_arguments(const char* format)
+bool pf_check_arguments(const char* format, int* count)
 {
     if (ce_strlen(format) == 0)
-		return (true);
+    {
+	*count = 0;
+	return (true);
+    }
     if (ft_strchr(format, '%') == NULL)
-		return (true);
+    {
+	*count = ce_strlen(format);
+	write(1, format, *count);
+	return (true);
+    }
     // ...
     return (false);
 }
@@ -74,13 +81,13 @@ int			ft_printf(const char * format, ...)
 	va_list		    args;
 	t_c_vector_string   arg_message;
 	char*		    main_message;
-	int count;
+	int		    count;
 
 	count = 0;
 	va_start(args, format);
 
-	if (pf_check_arguments(format))
-	    return (ce_strlen(format));
+	if (pf_check_arguments(format, &count))
+	    return (count);
 
 	c_vector_string_constructor(&arg_message);
 	//arg_message.m_dynamic_data = (t_c_string*)malloc(sizeof(t_c_string));

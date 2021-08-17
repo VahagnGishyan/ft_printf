@@ -1,8 +1,9 @@
 #include "ft_printf/ft_printf.h"// your header file here
 #include <limits.h>
 
-void	resetColor() {
-  printf("\033[0m");
+void	resetColor() 
+{
+    printf("\033[0m");
 }
 
 int ft_add_checksum(int ml, int pl, int *checksum_ft, int *checksum_sys)
@@ -33,7 +34,7 @@ int main()
 {
 	printf("Start main()\n");
 
-	ft_printf("My name is Vahagn\n");
+	ft_printf("My name is Vahagn, %s = %d\n", "var", 4);
 
 	printf("Exit main()\n");
 	return 0;
