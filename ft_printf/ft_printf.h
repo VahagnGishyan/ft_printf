@@ -9,7 +9,11 @@
 
 int	ft_printf(const char *input, ...);
 
+<<<<<<< HEAD
 bool	pf_check_arguments(const char *format, int* value);
+=======
+bool	pf_check_arguments(const char *format, int *value);
+>>>>>>> bd60d693229af996fbbd7f385abec4e5403ba511
 void	pf_split_by_message(const char* format, va_list* args, t_c_vector_string* arg_message);
 char	*pf_combine_main_message(t_c_vector_string *arg_message);
 int	pf_get_count(char* main_message);

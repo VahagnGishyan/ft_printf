@@ -14,7 +14,7 @@ bool	ce_dymemory(char **ptr, int length)
 void	ce_dyclear(char** ptr)
 {
     if (*ptr == NULL)
-	return;
+		return;
     free(*ptr);
     *ptr = NULL;
 }
