@@ -64,11 +64,7 @@ void pf_split_by_message(const char *format, va_list* args, t_c_vector_string* a
 		t_c_string* str;
 		str = c_vector_string_at(arg_message, index);
 
-<<<<<<< HEAD
 		ptr = (char*)malloc(c_string_size(str) * 1.3 + 1);
-=======
-		ptr = (char*)malloc(c_string_size(str));
->>>>>>> bd60d693229af996fbbd7f385abec4e5403ba511
 		c_string_convert_to_chararray(str, ptr);
 		printf("%s\n",ptr);
 		
@@ -144,3 +140,5 @@ int			ft_printf(const char * format, ...)
 	c_vector_string_destructor(&arg_message);
 	return (count);
 }
+
+//  Update printf 16.54
